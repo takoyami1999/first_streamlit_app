@@ -2,7 +2,8 @@ import streamlit
 import pandas
 
 #Title of the Diner
-streamlit.title('My Parents New Healthy Diner')
+streamlit.title('😈 😋Diner ng Ina mo 😋 😈')
+streamlit.text('MAPAPA AW KA SA SARAP 😋😋😋')
 
 #Menu
 streamlit.header('Breakfast Menu')
