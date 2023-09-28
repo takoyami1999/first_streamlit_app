@@ -31,6 +31,12 @@ streamlit.dataframe(fruits_to_show)
 #response api
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 
+#function
+def get_fruityvice_data(this_fruit_choice):
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+    return fruityvice_normalized
+
 #Display fruityvice api response
 streamlit.header("Fruityvice Fruit Advice!")
 
@@ -42,9 +48,8 @@ try:
                     
   else:
   #normalize api response to a database
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    streamlit.dataframe(fruityvice_normalized)
+      back_from_function = get_fruityvice_date (fruit_choice)
+      streamlit.dataframe(back_from_function)
 
 except URLError as e:
   streamlit.error()
