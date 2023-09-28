@@ -48,7 +48,7 @@ try:
                     
   else:
   #normalize api response to a database
-      back_from_function = get_fruityvice_date (fruit_choice)
+      back_from_function = get_fruityvice_data (fruit_choice)
       streamlit.dataframe(back_from_function)
 
 except URLError as e:
